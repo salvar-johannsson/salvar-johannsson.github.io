@@ -37,44 +37,23 @@
             color: white;
             margin-top: 20px;
         }
-        .language-switcher {
-            text-align: center;
-            margin: 20px 0;
-        }
-        .language-switcher button {
-            margin: 0 5px;
-            padding: 10px 20px;
-            background-color: #004466;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-        .language-switcher button:hover {
-            background-color: #006699;
-        }
     </style>
 </head>
 <body>
     <header>
-        <h1 id="header-title">Salvar Andri Jóhannsson</h1>
-        <p id="header-subtitle">Electrical Engineer | Medical Engineer</p>
+        <h1>Salvar Andri Jóhannsson</h1>
+        <p>Electrical Engineer | Medical Engineer</p>
     </header>
     
-    <div class="language-switcher">
-        <button onclick="switchLanguage('en')">English</button>
-        <button onclick="switchLanguage('is')">Icelandic</button>
-        <button onclick="switchLanguage('sv')">Swedish</button>
-    </div>
-
     <div class="container">
         <div class="section">
-            <h2 id="about-title">About Me</h2>
-            <p id="about-content">Master's student in Medical Engineering at KTH Royal Institute of Technology, with a background in Electrical and Computer Engineering from the University of Iceland. Passionate about AI in healthcare, biomedical signal processing, and innovative medical technologies.</p>
+            <h2>About Me</h2>
+            <p>Master's student in Medical Engineering at KTH Royal Institute of Technology, with a background in Electrical and Computer Engineering from the University of Iceland. Passionate about AI in healthcare, biomedical signal processing, and innovative medical technologies.</p>
         </div>
         
         <div class="section">
-            <h2 id="skills-title">Skills</h2>
-            <ul id="skills-list">
+            <h2>Skills</h2>
+            <ul>
                 <li>Medical Device Development</li>
                 <li>Biomedical Signal Processing</li>
                 <li>Embedded Systems</li>
@@ -86,49 +65,46 @@
             </ul>
         </div>
         
-        <!-- Other sections remain unchanged -->
+        <div class="section">
+            <h2>Experience</h2>
+            <div id="experience-container">
+                <!-- Job experience will be loaded here -->
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Education</h2>
+            <ul>
+                <li><strong>KTH Royal Institute of Technology</strong> - M.Sc. in Biomedical/Medical Engineering [2022 - 2025]</li>
+                <li><strong>University of Iceland</strong> - B.Sc. in Electrical and Computer Engineering [2018 - 2021]</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>Projects</h2>
+            <p>Key projects include AI-driven trauma triage models, medical device prototyping, and research in artificial heart development.</p>
+        </div>
+        
+        <div class="section">
+            <h2>Contact</h2>
+            <p>Email: salvar.andri@gmail.com</p>
+            <p><a href="https://www.linkedin.com/in/salvar-johannsson/">LinkedIn</a></p>
+            <p><a href="https://github.com/salvar-johannsson">GitHub</a></p>
+        </div>
     </div>
     
     <footer>
-        <p id="footer-text">&copy; 2025 Salvar Andri Jóhannsson | Medical & Electrical Engineer</p>
+        <p>&copy; 2025 Salvar Andri Jóhannsson | Medical & Electrical Engineer</p>
     </footer>
 
     <script>
-        const translations = {
-            en: {
-                headerTitle: "Salvar Andri Jóhannsson",
-                headerSubtitle: "Electrical Engineer | Medical Engineer",
-                aboutTitle: "About Me",
-                aboutContent: "Master's student in Medical Engineering at KTH Royal Institute of Technology, with a background in Electrical and Computer Engineering from the University of Iceland. Passionate about AI in healthcare, biomedical signal processing, and innovative medical technologies.",
-                skillsTitle: "Skills",
-                footerText: "&copy; 2025 Salvar Andri Jóhannsson | Medical & Electrical Engineer"
-            },
-            is: {
-                headerTitle: "Salvar Andri Jóhannsson",
-                headerSubtitle: "Rafmagnsverkfræðingur | Læknisfræðiverkfræðingur",
-                aboutTitle: "Um Mig",
-                aboutContent: "Meistaranemi í læknisfræðiverkfræði við KTH Royal Institute of Technology, með bakgrunn í rafmagns- og tölvuverkfræði frá Háskóla Íslands. Ástríðufullur um gervigreind í heilbrigðisþjónustu, lífeðlisfræðilega merkjavinnslu og nýstárlega læknisfræðilega tækni.",
-                skillsTitle: "Hæfni",
-                footerText: "&copy; 2025 Salvar Andri Jóhannsson | Rafmagns- og læknisfræðiverkfræðingur"
-            },
-            sv: {
-                headerTitle: "Salvar Andri Jóhannsson",
-                headerSubtitle: "Elektroingenjör | Medicinteknisk Ingenjör",
-                aboutTitle: "Om Mig",
-                aboutContent: "Masterstudent i medicinteknik vid KTH Royal Institute of Technology, med en bakgrund i elektroteknik och datateknik från Islands universitet. Passionerad om AI inom sjukvård, biomedicinsk signalbehandling och innovativ medicinsk teknik.",
-                skillsTitle: "Färdigheter",
-                footerText: "&copy; 2025 Salvar Andri Jóhannsson | Elektro- och medicinteknisk ingenjör"
-            }
-        };
-
-        function switchLanguage(lang) {
-            document.getElementById("header-title").textContent = translations[lang].headerTitle;
-            document.getElementById("header-subtitle").textContent = translations[lang].headerSubtitle;
-            document.getElementById("about-title").textContent = translations[lang].aboutTitle;
-            document.getElementById("about-content").textContent = translations[lang].aboutContent;
-            document.getElementById("skills-title").textContent = translations[lang].skillsTitle;
-            document.getElementById("footer-text").innerHTML = translations[lang].footerText;
-        }
+        // Fetch the experience content dynamically
+        fetch('experience.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('experience-container').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading experience:', error));
     </script>
 </body>
 </html>
