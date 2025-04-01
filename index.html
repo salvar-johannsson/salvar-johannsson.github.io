@@ -17,6 +17,14 @@
             text-align: center;
             padding: 20px;
         }
+        .language-selector {
+            margin: 20px 0;
+            text-align: center;
+        }
+        .language-selector select {
+            padding: 10px;
+            font-size: 16px;
+        }
         .container {
             width: 80%;
             margin: auto;
@@ -37,14 +45,6 @@
             color: white;
             margin-top: 20px;
         }
-        .language-selector {
-            margin: 20px 0;
-            text-align: center;
-        }
-        .language-selector select {
-            padding: 10px;
-            font-size: 16px;
-        }
     </style>
 </head>
 <body>
@@ -53,6 +53,7 @@
         <p>Electrical Engineer | Medical Engineer</p>
     </header>
     
+    <!-- Dropdown Menu -->
     <div class="language-selector">
         <label for="language-dropdown">Select Language: </label>
         <select id="language-dropdown" onchange="loadContent()">
@@ -75,11 +76,7 @@
         </div>
         
         <div id="education-container" class="section">
-            <h2>Education</h2>
-            <ul>
-                <li><strong>KTH Royal Institute of Technology</strong> - M.Sc. in Biomedical/Medical Engineering [2022 - 2025]</li>
-                <li><strong>University of Iceland</strong> - B.Sc. in Electrical and Computer Engineering [2018 - 2021]</li>
-            </ul>
+            <!-- Education content will be loaded here -->
         </div>
         
         <div id="projects-container" class="section">
@@ -106,9 +103,10 @@
 
             // Define file paths for each section
             const filePaths = {
-                about: `about/about_${language}.html`,
-                skills: `skills/skills_${language}.html`,
-                experience: `experience/experience_${language}.html`
+                about: `${language}/about_${language}.html`,
+                skills: `${language}/skills_${language}.html`,
+                experience: `${language}/experience_${language}.html`,
+                education: `${language}/education_${language}.html`
             };
 
             // Load content for each section

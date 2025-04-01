@@ -4,7 +4,9 @@ salvar-johannsson.github.io/
 │   ├── skills_english.html
 │   ├── about_english.html
 │   ├── experience_english.html
+│   ├── education_english.html
 ├── swedish/
 │   ├── skills_swedish.html
 │   ├── about_swedish.html
 │   ├── experience_swedish.html
+│   ├── education_swedish.html
