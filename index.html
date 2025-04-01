@@ -49,8 +49,8 @@
 </head>
 <body>
     <header>
-        <h1>Salvar Andri Jóhannsson</h1>
-        <p>Electrical Engineer | Medical Engineer</p>
+        <h1 id="header-title">Salvar Andri Jóhannsson</h1>
+        <p id="header-subtitle">Electrical Engineer | Medical Engineer</p>
     </header>
     
     <!-- Dropdown Menu -->
@@ -86,15 +86,15 @@
         </div>
         
         <div id="contact-container" class="section">
-            <h2>Contact</h2>
-            <p>Email: salvar.andri@gmail.com</p>
-            <p><a href="https://www.linkedin.com/in/salvar-johannsson/">LinkedIn</a></p>
-            <p><a href="https://github.com/salvar-johannsson">GitHub</a></p>
+            <h2 id="contact-title">Contact</h2>
+            <p id="contact-email">Email: salvar.andri@gmail.com</p>
+            <p><a id="contact-linkedin" href="https://www.linkedin.com/in/salvar-johannsson/">LinkedIn</a></p>
+            <p><a id="contact-github" href="https://github.com/salvar-johannsson">GitHub</a></p>
         </div>
     </div>
     
     <footer>
-        <p>&copy; 2025 Salvar Andri Jóhannsson | Medical & Electrical Engineer</p>
+        <p id="footer-text">&copy; 2025 Salvar Andri Jóhannsson | Medical & Electrical Engineer</p>
     </footer>
 
     <script>
@@ -124,6 +124,34 @@
                     })
                     .catch(error => console.error(`Error loading ${section}:`, error));
             }
+
+            // Update static elements dynamically
+            const translations = {
+                english: {
+                    headerSubtitle: "Electrical Engineer | Medical Engineer",
+                    contactTitle: "Contact",
+                    contactEmail: "Email: salvar.andri@gmail.com",
+                    footerText: "&copy; 2025 Salvar Andri Jóhannsson | Medical & Electrical Engineer"
+                },
+                swedish: {
+                    headerSubtitle: "Elektroingenjör | Medicinteknisk Ingenjör",
+                    contactTitle: "Kontakt",
+                    contactEmail: "E-post: salvar.andri@gmail.com",
+                    footerText: "&copy; 2025 Salvar Andri Jóhannsson | Elektro- och Medicinteknisk Ingenjör"
+                },
+                icelandic: {
+                    headerSubtitle: "Rafmagnsverkfræðingur | Læknisfræðiverkfræðingur",
+                    contactTitle: "Hafa Samband",
+                    contactEmail: "Netfang: salvar.andri@gmail.com",
+                    footerText: "&copy; 2025 Salvar Andri Jóhannsson | Rafmagns- og Læknisfræðiverkfræðingur"
+                }
+            };
+
+            // Apply translations to static elements
+            document.getElementById('header-subtitle').textContent = translations[language].headerSubtitle;
+            document.getElementById('contact-title').textContent = translations[language].contactTitle;
+            document.getElementById('contact-email').textContent = translations[language].contactEmail;
+            document.getElementById('footer-text').innerHTML = translations[language].footerText;
         }
 
         // Load default content (English) on page load
