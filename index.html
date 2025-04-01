@@ -38,7 +38,7 @@
             margin-top: 20px;
         }
         .language-selector {
-            margin-bottom: 20px;
+            margin: 20px 0;
             text-align: center;
         }
         .language-selector select {
@@ -53,41 +53,28 @@
         <p>Electrical Engineer | Medical Engineer</p>
     </header>
     
+    <div class="language-selector">
+        <label for="language-dropdown">Select Language: </label>
+        <select id="language-dropdown" onchange="loadContent()">
+            <option value="english">English</option>
+            <option value="swedish">Swedish</option>
+        </select>
+    </div>
+
     <div class="container">
-        <div class="section">
-            <h2>About Me</h2>
-            <p>Master's student in Medical Engineering at KTH Royal Institute of Technology, with a background in Electrical and Computer Engineering from the University of Iceland. Passionate about AI in healthcare, biomedical signal processing, and innovative medical technologies.</p>
+        <div id="about-container" class="section">
+            <!-- About content will be loaded here -->
         </div>
         
-        <div class="section">
-            <h2>Skills</h2>
-            <ul>
-                <li>Medical Device Development</li>
-                <li>Biomedical Signal Processing</li>
-                <li>Embedded Systems</li>
-                <li>Circuit Design & PCB Layout</li>
-                <li>AI in Healthcare</li>
-                <li>Machine Learning</li>
-                <li>Problem Solving</li>
-                <li>Programming (NumPy, Python, etc.)</li>
-            </ul>
+        <div id="skills-container" class="section">
+            <!-- Skills content will be loaded here -->
         </div>
         
-        <div class="section">
-            <h2>Experience</h2>
-            <div class="language-selector">
-                <label for="language-dropdown">Select Language: </label>
-                <select id="language-dropdown" onchange="loadExperience()">
-                    <option value="experience.html">English</option>
-                    <option value="experience/experience_swedish.html">Swedish</option>
-                </select>
-            </div>
-            <div id="experience-container">
-                <!-- Job experience will be loaded here -->
-            </div>
+        <div id="experience-container" class="section">
+            <!-- Experience content will be loaded here -->
         </div>
         
-        <div class="section">
+        <div id="education-container" class="section">
             <h2>Education</h2>
             <ul>
                 <li><strong>KTH Royal Institute of Technology</strong> - M.Sc. in Biomedical/Medical Engineering [2022 - 2025]</li>
@@ -95,12 +82,12 @@
             </ul>
         </div>
         
-        <div class="section">
+        <div id="projects-container" class="section">
             <h2>Projects</h2>
             <p>Key projects include AI-driven trauma triage models, medical device prototyping, and research in artificial heart development.</p>
         </div>
         
-        <div class="section">
+        <div id="contact-container" class="section">
             <h2>Contact</h2>
             <p>Email: salvar.andri@gmail.com</p>
             <p><a href="https://www.linkedin.com/in/salvar-johannsson/">LinkedIn</a></p>
@@ -113,26 +100,35 @@
     </footer>
 
     <script>
-        // Function to load the selected experience file
-        function loadExperience() {
-            const dropdown = document.getElementById('language-dropdown');
-            const selectedFile = dropdown.value;
+        // Function to load content dynamically based on the selected language
+        function loadContent() {
+            const language = document.getElementById('language-dropdown').value;
 
-            fetch(selectedFile)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`);
-                    }
-                    return response.text();
-                })
-                .then(data => {
-                    document.getElementById('experience-container').innerHTML = data;
-                })
-                .catch(error => console.error('Error loading experience:', error));
+            // Define file paths for each section
+            const filePaths = {
+                about: `about/about_${language}.html`,
+                skills: `skills/skills_${language}.html`,
+                experience: `experience/experience_${language}.html`
+            };
+
+            // Load content for each section
+            for (const [section, filePath] of Object.entries(filePaths)) {
+                fetch(filePath)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error(`HTTP error! status: ${response.status}`);
+                        }
+                        return response.text();
+                    })
+                    .then(data => {
+                        document.getElementById(`${section}-container`).innerHTML = data;
+                    })
+                    .catch(error => console.error(`Error loading ${section}:`, error));
+            }
         }
 
-        // Load the default experience (English) on page load
-        window.onload = loadExperience;
+        // Load default content (English) on page load
+        window.onload = loadContent;
     </script>
 </body>
 </html>
