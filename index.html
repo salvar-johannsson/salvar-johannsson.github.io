@@ -37,6 +37,14 @@
             color: white;
             margin-top: 20px;
         }
+        .language-selector {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .language-selector select {
+            padding: 10px;
+            font-size: 16px;
+        }
     </style>
 </head>
 <body>
@@ -67,6 +75,13 @@
         
         <div class="section">
             <h2>Experience</h2>
+            <div class="language-selector">
+                <label for="language-dropdown">Select Language: </label>
+                <select id="language-dropdown" onchange="loadExperience()">
+                    <option value="experience.html">English</option>
+                    <option value="experience/experience_swedish.html">Swedish</option>
+                </select>
+            </div>
             <div id="experience-container">
                 <!-- Job experience will be loaded here -->
             </div>
@@ -98,13 +113,26 @@
     </footer>
 
     <script>
-        // Fetch the experience content dynamically
-        fetch('experience.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('experience-container').innerHTML = data;
-            })
-            .catch(error => console.error('Error loading experience:', error));
+        // Function to load the selected experience file
+        function loadExperience() {
+            const dropdown = document.getElementById('language-dropdown');
+            const selectedFile = dropdown.value;
+
+            fetch(selectedFile)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById('experience-container').innerHTML = data;
+                })
+                .catch(error => console.error('Error loading experience:', error));
+        }
+
+        // Load the default experience (English) on page load
+        window.onload = loadExperience;
     </script>
 </body>
 </html>
