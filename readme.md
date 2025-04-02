@@ -1,20 +1,50 @@
 salvar-johannsson.github.io/
 ├── index.html
-├── english/
-│   ├── about_english.html
-│   ├── skills_english.html
-│   ├── experience_english.html
-│   ├── education_english.html
-|   ├── projects_english.html
-├── swedish/
-│   ├── about_swedish.html
-│   ├── skills_swedish.html
-│   ├── experience_swedish.html
-│   ├── education_swedish.html
-|   ├── projects_swedish.html
-├── icelandic/
-│   ├── about_icelandic.html
-│   ├── skills_icelandic.html
-│   ├── experience_icelandic.html
-│   ├── education_icelandic.html
-|   ├── projects_icelandc.html
+├── /assets
+│   ├── /css
+│   │   ├── styles.css
+│   ├── /js
+│   │   ├── main.js
+│   ├── /images
+│   │   ├── headshot.png
+│── /locales
+│   ├── en.json
+│   ├── sv.json
+│   ├── is.json
+├── /en/
+│   ├── about.html
+│   ├── skills.html
+│   ├── experience.html
+│   ├── education.html
+│   ├── projects.html
+│   ├── /projects/
+│   │   ├── ai-trauma-triage.html
+│   │   ├── medical-device-prototyping.html
+│   │   ├── artificial-heart-research.html
+├── /sv/
+│   ├── about.html
+│   ├── skills.html
+│   ├── experience.html
+│   ├── education.html
+│   ├── projects.html
+│   ├── /projects/
+│   │   ├── ai-trauma-triage.html
+│   │   ├── medical-device-prototyping.html
+│   │   ├── artificial-heart-research.html
+├── /is/
+│   ├── about.html
+│   ├── skills.html
+│   ├── experience.html
+│   ├── education.html
+│   ├── projects.html
+│   ├── /projects/
+│   │   ├── ai-trauma-triage.html
+│   │   ├── medical-device-prototyping.html
+│   │   ├── artificial-heart-research.html
+├── /includes
+│   ├── header.html
+│   ├── footer.html
+│   ├── navbar.html
+│── .htaccess (for URL redirection)
+│── sitemap.xml
+│── robots.txt
