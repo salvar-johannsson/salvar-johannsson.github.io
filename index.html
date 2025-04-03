@@ -7,20 +7,7 @@
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-    <header>
-        <h1 id="header-title">Salvar Andri Jóhannsson</h1>
-        <p id="header-subtitle">Electrical Engineer | Medical Engineer</p>
-    </header>
-    
-    <!-- Dropdown Menu -->
-    <div class="language-selector">
-        <label for="language-dropdown">Select Language: </label>
-        <select id="language-dropdown" onchange="loadContent()">
-            <option value="english">English</option>
-            <option value="swedish">Swedish</option>
-            <option value="icelandic">Icelandic</option>
-        </select>
-    </div>
+    <div id="header-container"></div> <!-- Header will be loaded here -->
 
     <div class="container">
         <div id="about-container" class="section">
@@ -56,14 +43,21 @@
         </div>
     </div>
     
-    <footer>
-        <p id="footer-text">&copy; 2025 Salvar Andri Jóhannsson | Medical & Electrical Engineer</p>
-    </footer>
+    <div id="footer-container"></div> <!-- Footer will be loaded here -->
 
     <script>
+        // Load the header dynamically
+        fetch('includes/header.html') // Path to the header file
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-container').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading header:', error));
+
         // Function to load content dynamically based on the selected language
         function loadContent() {
-            const language = document.getElementById('language-dropdown').value;
+            const languageDropdown = document.getElementById('language-dropdown');
+            const language = languageDropdown ? languageDropdown.value || 'english' : 'english'; // Default to English
 
             // Define file paths for each section
             const filePaths = {
@@ -119,7 +113,29 @@
         }
 
         // Load default content (English) on page load
-        window.onload = loadContent;
+        window.onload = () => {
+            const languageDropdown = document.getElementById('language-dropdown');
+            if (languageDropdown) {
+                languageDropdown.value = 'english'; // Set default dropdown value to English
+            }
+            loadContent();
+        };
+
+        // Load the footer dynamically
+        fetch('includes/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-container').innerHTML = data;
+
+                const language = document.getElementById('language-dropdown').value || 'english';
+                const translations = {
+                    english: "&copy; 2025 Salvar Andri Jóhannsson | Medical & Electrical Engineer",
+                    swedish: "&copy; 2025 Salvar Andri Jóhannsson | Elektro- och Medicinteknisk Ingenjör",
+                    icelandic: "&copy; 2025 Salvar Andri Jóhannsson | Rafmagns- og Læknisfræðiverkfræðingur"
+                };
+                document.getElementById('footer-text').innerHTML = translations[language];
+            })
+            .catch(error => console.error('Error loading footer:', error));
     </script>
 </body>
 </html>

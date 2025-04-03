@@ -1,16 +1,12 @@
 <header>
-    <nav class="navbar">
-        <ul>
-            <li><a href="/index.html">Home</a></li>
-            <li><a href="/en/projects.html">Projects</a></li>
-            <li><a href="/en/about.html">About</a></li>
-            <li>
-                <select id="language-switcher" onchange="switchLanguage(this.value)">
-                    <option value="en">English</option>
-                    <option value="is">Icelandic</option>
-                    <option value="sv">Swedish</option>
-                </select>
-            </li>
-        </ul>
-    </nav>
+    <h1 id="header-title">Salvar Andri Jóhannsson</h1>
+    <p id="header-subtitle">Electrical Engineer | Medical Engineer</p>
+    <div class="language-selector">
+        <label for="language-dropdown">Select Language: </label>
+        <select id="language-dropdown" onchange="loadContent()">
+            <option value="english">English</option>
+            <option value="swedish">Swedish</option>
+            <option value="icelandic">Icelandic</option>
+        </select>
+    </div>
 </header>
