@@ -43,6 +43,20 @@ header {
     border-radius: 5px;
     text-align: center;
 }
+#contact-info {
+    text-align: center;
+    margin: 20px 0;
+}
+#contact-info a {
+    margin: 0 10px;
+    color: white; /* Adjust color */
+    font-size: 24px; /* Adjust size */
+    text-decoration: none;
+}
+
+#contact-info a:hover {
+    color: #0077b5; /* Change color on hover */
+}
 .container {
     width: 80%;
     margin: auto;
