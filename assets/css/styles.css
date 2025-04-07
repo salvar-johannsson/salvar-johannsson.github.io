@@ -26,6 +26,16 @@ header {
     padding: 20px;
 }
 
+#header-title {
+    font-size: 36px;
+    margin: 0;
+}
+
+#header-subtitle {
+    font-size: 24px;
+    margin: 10px 0;
+}
+
 .header-options {
     display: flex;
     justify-content: space-evenly;
