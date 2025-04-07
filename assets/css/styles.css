@@ -39,6 +39,7 @@ header {
 #header-subtitle {
     font-size: 24px;
     margin: 10px 0;
+    white-space: nowrap;
 }
 
 .header-options {
