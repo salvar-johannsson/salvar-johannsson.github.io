@@ -3,31 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Salvar A. Jóhannsson - Medical & Electrical Engineer</title>
+    <title>Projects - Thesis</title>
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
     <div id="header-container"></div> <!-- Header will be loaded here -->
 
     <div class="container">
-        <div id="about-container" class="section">
+        <div id="thesis-container" class="section">
             <!-- About content will be loaded here -->
-        </div>
-        
-        <div id="skills-container" class="section">
-            <!-- Skills content will be loaded here -->
-        </div>
-        
-        <div id="experience-container" class="section">
-            <!-- Experience content will be loaded here -->
-        </div>
-        
-        <div id="education-container" class="section">
-            <!-- Education content will be loaded here -->
-        </div>
-        
-        <div id="projects-container" class="section">
-            <!-- Projects content will be loaded here -->
         </div>
         
         <div id="contact-container" class="section">
@@ -37,6 +21,10 @@
             <p><a id="contact-github" href="https://github.com/salvar-johannsson">GitHub</a></p>
         </div>
 
+        <div id="cv-container" class="section">
+            <h2>Download My CV</h2>
+            <a href="cv/cv.pdf" download="Salvar_Andri_Johannsson_CV.pdf" class="download-button">Download CV</a>
+        </div>
     </div>
     
     <div id="footer-container"></div> <!-- Footer will be loaded here -->
@@ -57,11 +45,7 @@
 
             // Define file paths for each section
             const filePaths = {
-                about: `${language}/about_${language}.html`,
-                skills: `${language}/skills_${language}.html`,
-                experience: `${language}/experience_${language}.html`,
-                education: `${language}/education_${language}.html`,
-                projects: `${language}/projects_${language}.html` // Added projects
+                thesis: `${language}/thesis_${language}.html`,
             };
 
             // Load content for each section
