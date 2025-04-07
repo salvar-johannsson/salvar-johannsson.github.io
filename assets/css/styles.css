@@ -15,15 +15,16 @@ header {
     justify-content: space-evenly;
     align-items: center;
 }
-.language-selector {
-    margin: 20px 0;
+#contact-info {
     text-align: center;
+    margin: 20px 0;
 }
-.language-selector select {
-    padding: 10px;
-    font-size: 16px;
+#contact-info a {
+    margin: 0 10px;
+    color: white; /* Adjust color */
+    font-size: 24px; /* Adjust size */
+    text-decoration: none;
 }
-.language-selector,
 #cv-download {
     text-align: center;
     align-items: center;
@@ -43,16 +44,15 @@ header {
     border-radius: 5px;
     text-align: center;
 }
-#contact-info {
-    text-align: center;
+.language-selector {
     margin: 20px 0;
+    text-align: center;
 }
-#contact-info a {
-    margin: 0 10px;
-    color: white; /* Adjust color */
-    font-size: 24px; /* Adjust size */
-    text-decoration: none;
+.language-selector select {
+    padding: 10px;
+    font-size: 16px;
 }
+.language-selector,
 
 #contact-info a:hover {
     color: #0077b5; /* Change color on hover */
