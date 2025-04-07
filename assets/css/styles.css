@@ -130,3 +130,39 @@ footer {
 #footer-contact-info a:hover {
     color: #0077b5;
 }
+
+/* Responsive Header and Footer */
+
+/* Header Styles for Mobile */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column; /* Stack header elements vertically */
+        text-align: center; /* Center-align text */
+    }
+
+    #header-title {
+        font-size: 28px; /* Adjust font size for smaller screens */
+    }
+
+    #header-subtitle {
+        font-size: 18px; /* Adjust subtitle font size */
+    }
+
+    .header-options {
+        flex-direction: column; /* Stack options vertically */
+        gap: 10px; /* Add spacing between options */
+    }
+}
+
+/* Footer Styles for Mobile */
+@media (max-width: 768px) {
+    footer {
+        flex-direction: column; /* Stack footer elements vertically */
+        text-align: center; /* Center-align text */
+    }
+
+    #footer-contact-info a {
+        margin: 5px 0; /* Reduce margin for links */
+        font-size: 16px; /* Adjust font size for smaller screens */
+    }
+}
